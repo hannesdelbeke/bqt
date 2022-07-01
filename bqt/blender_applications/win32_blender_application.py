@@ -8,8 +8,22 @@ from contextlib import suppress
 
 import bpy
 
-from PySide2.QtGui import QIcon, QImage, QPixmap
-from PySide2.QtCore import QByteArray, QObject
+import Qt5
+QApplication = Qt5.QtWidgets.QApplication
+QWidget = Qt5.QtWidgets.QWidget
+QCloseEvent = Qt5.QtGui.QCloseEvent
+QIcon = Qt5.QtGui.QIcon
+QImage = Qt5.QtGui.QImage
+QPixmap = Qt5.QtGui.QPixmap
+QWindow = Qt5.QtGui.QWindow
+QEvent = Qt5.QtCore.QEvent
+QObject = Qt5.QtCore.QObject
+QRect = Qt5.QtCore.QRect
+QSettings = Qt5.QtCore.QSettings
+QByteArray = Qt5.QtCore.QByteArray
+
+# from Qt5.QtGui import QIcon, QImage, QPixmap
+# from Qt5.QtCore import QByteArray, QObject
 
 from .blender_application import BlenderApplication
 
@@ -121,3 +135,4 @@ class Win32BlenderApplication(BlenderApplication):
         pass
         if focus_object is self.blender_widget:
             ctypes.windll.user32.SetFocus(self._hwnd)
+            self.just_focused = True
