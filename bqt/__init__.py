@@ -102,7 +102,7 @@ def create_global_app(*_args):
     Returns:
 
     """
-    if 'startup' in __file__ and not os.getenv('BQT_DISABLE_STARTUP'):
+    if not os.getenv('BQT_DISABLE_STARTUP'):
         bpy.ops.qoperator.global_app()
 
 
